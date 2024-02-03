@@ -1,0 +1,23 @@
+<!-- En django_app/templates/vista_protegida.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Protegida</title>
+</head>
+<body>
+    <h1>Bienvenido a la Vista Protegida</h1>
+    <p>Esta es una página especial para usuarios autenticados.</p>
+
+    <!-- Contenido específico para usuarios autenticados -->
+    {% if user.is_authenticated %}
+        <p>Hola, {{ user.username }}. ¡Disfruta de tu acceso privilegiado!</p>
+    {% else %}
+        <p>No deberías ver esto, ya que no estás autenticado.</p>
+    {% endif %}
+
+    <p><a href="{% url 'logout' %}">Cerrar sesión</a></p>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<!-- En django_app/templates/formulario.html -->
+<form method="post" action="{% url 'formulario' %}">
+    {% csrf_token %}
+    {{ formulario.as_p }}
+    <button type="submit">Enviar</button>
+</form>

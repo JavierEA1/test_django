@@ -17,7 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
-
+from .views import formulario_view,vista_protegida,registro_usuario
+from django.contrib.auth.views import LoginView, LogoutView
 urlpatterns = [
+    path('login/', LoginView.as_view(template_name='login.html'), name='login'),
+     path('registro/', registro_usuario, name='registro_usuario'),
+    path('formulario/', formulario_view, name='formulario'),
+    path('vista_protegida/', vista_protegida, name='vista_protegida'),
     path('', views.index, name='index'),
+    path('posts/', views.PostListCreateAPIView.as_view(), name='post-list-create'),
 ]
